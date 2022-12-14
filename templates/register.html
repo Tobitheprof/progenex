@@ -1,0 +1,62 @@
+    {% extends 'base2.html' %}
+    {% load static %}
+    {% block content %}
+    <!--Login-->
+    <section id="signup">
+        <div class="justify-content-center">
+            <div class="container-lg border-2">
+                    <div class="text-lg-center text-md-start">
+                        <h4 class="fw-bold">Signup</h4>
+                        <p class="lead">Sign today with <span class="fw-bold">Pro</span>genex and get to generating that free portfolio today</p>
+                        <p>Already have an account? Click <a href="{% url 'login' %}">here</a> to login</p>
+                    </div>
+                <div class="row justify-content-center my-5">    
+                    <div class="col-lg-6">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name">
+                                <span class="input-group-text"><i class="bi bi-question-circle"></i></span>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                                <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name">
+                                <span class="input-group-text"><i class="bi bi-question-circle"></i></span>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Email, E.g. tobi@mail.com">
+                                <span class="input-group-text"><i class="bi bi-question-circle"></i></span>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="bi bi-file-person"></i></span>
+                                <input type="text" name="username" id="email" class="form-control" placeholder="Username">
+                                <span class="input-group-text"><i class="bi bi-question-circle"></i></span>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="bi bi-emoji-wink"></i></span>
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                                <span class="input-group-text"><i class="bi bi-question-circle"></i></span>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="bi bi-emoji-smile"></i></span>
+                                <input type="password" name="password2" id="password2" class="form-control" placeholder="Confirm Password">
+                                <span class="input-group-text"><i class="bi bi-question-circle"></i></span>
+                            </div>
+                            <p class="text-muted">Forgot passowrd? Click <a href="#">here</a> to reset it.</p>
+                            <div class="text-center mb-4 mt-2">
+                                <button type="submit" class="btn btn-secondary">Sign Up</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock %}

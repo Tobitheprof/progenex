@@ -1,0 +1,67 @@
+    {% extends 'base.html' %}
+    {% load static %}
+    {% block content %}
+    <!--Main Section-->
+    <section id="main">
+        <div class="container-lg mt-5">
+            <div class="text-lg-start text-md-start text-sm-start">
+                <p class="lead">Welcome to <span class="fw-bold">Pro</span>genex the future of No-Code get started today by generating a free portfolio today that you can use to share your work.</p>
+            </div>
+
+              <div class="list-group">
+                <a href="{% url 'p-and-c' %}" class="list-group-item list-group-item-action" aria-current="true">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Update your Personal & Contact Information</h5>
+                    <!-- <small>3 days ago</small> -->
+                  </div>
+                  <p class="mb-1">To be as professional as can be, it's best you provide up to date and accurate information in regards to you personally and your contact information too</p>
+                  <!-- <small>And some small print.</small> -->
+                </a>
+                <a href="{% url 'work' %}" class="list-group-item list-group-item-action">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Add some work experience</h5>
+                    <!-- <small class="text-muted">3 days ago</small> -->
+                  </div>
+                  <p class="mb-1">Employers will only go for someone with work experience. But can you get experience when no one wants to employ someone without experience?</p>
+                  <p>It's quite simple, all you need to do is take up volunteer jobs and entry level positions too. It's that simple.</p>
+                  <!-- <small class="text-muted">And some muted small print.</small> -->
+                </a>
+                <a href="{% url 'education' %}" class="list-group-item list-group-item-action">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Education</h5>
+                    <!-- <small class="text-muted">3 days ago</small> -->
+                  </div>
+                  <p class="mb-1">Eductaion as we all know is the key to success. Make your portfolio standout by adding your education background to it.</p>
+                  <!-- <small class="text-muted">And some muted small print.</small> -->
+                </a>
+                <a href="{% url 'skills' %}" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">Skills</h5>
+                      <!-- <small class="text-muted">3 days ago</small> -->
+                    </div>
+                    <p class="mb-1">Ngl, I'm kind of a one trick pony. Programming is my only quirk and ummmm it's not good tbh. So, don't be like me. Add multiple skills to create the ultimate porftfolio. Don't forget to add the skill level too.</p>
+                    <!-- <small class="text-muted">And some muted small print.</small> -->
+                </a>
+                <a href="{% url 'resume' user %}" class="list-group-item list-group-item-action">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Already done all of the stuff above?</h5>
+                    <!-- <small class="text-muted">3 days ago</small> -->
+                  </div>
+                  <p class="mb-1">If you've already done all of the stuff mentioned above, then go ahead and click this message to view your free portfolio</p>
+                  <p>You PLAN-ET</p>
+                  <!-- <small class="text-muted">And some muted small print.</small> -->
+              </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">Dad Joke</h5>
+                      <!-- <small class="text-muted">3 days ago</small> -->
+                    </div>
+                    <p class="mb-1">How do you throw a party in space?</p>
+                    <p>You PLAN-ET</p>
+                    <!-- <small class="text-muted">And some muted small print.</small> -->
+                </a>
+              </div>
+        </div>
+    </section>
+    <!--Main Section End-->
+    {% endblock %}

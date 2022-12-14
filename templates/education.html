@@ -1,0 +1,73 @@
+
+    <!--Block Content Start-->
+    {% extends 'base.html' %}
+    {% block content %}
+    <section id="education">
+        <div class="container-lg">
+            <div class="text-start-lg text-start-md text-start-sm">
+                <h4>Education</h4>
+                <p class="lead">Uploading your education history will do you good. Add some history now and get one step closer to making that awesome portfolio</p>
+                {% if messages %}
+                {% for message in messages %}
+                <p style="color:steelblue">{{message}} Click <a href="{% url 'achievements' %}">here</a> to add some achievements</p>
+                {% endfor %}
+                {% endif %}
+                <div class="border-bottom my-4"></div>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <!--For Loop Start-->
+                {% for a in education %}
+                <div class="col">
+                  <div class="card">
+                    <!-- <img src="..." class="card-img-top" alt="..."> -->
+                    <div class="card-body">
+                      <h5 class="card-title">{{a.degree}} in {{a.course_of_study}} <span class="fw-light lead">| {{a.start}}-{{a.stop}}</span></h5>
+                      <p class="lead">{{a.institution}}</p>
+                      <p class="card-text">{{a.description}}</p>
+                      <p class="lead"><a href="{% url 'del-edu' a.id %}" style="color: black;"><i class="bi bi-trash"></a></i></p>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+                <!--For Loop End-->
+            </div>
+            <a href="#" class="btn btn-secondary mt-4" data-bs-toggle="modal" data-bs-target="#work">Add Some Educational Background</a>
+        </div>
+    </section>
+
+    <!--Modal Start-->
+    <div class="modal fade" id="work" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Some Education History</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <label for="degree" class="form-label">Degree Obtained:</label>
+                        <input type="text" class="form-control" id="degree" placeholder="e.g. Bsc, Msc, PhD" name="degree">
+                        <label for="int_name" class="form-label">Institution Name:</label>
+                        <input type="text" class="form-control" id="int_name" placeholder="e.g. Ahmadu Bello University, MIT, Stanford etc" name="int_name">
+                        <label for="cos" class="form-label">Course of Study:</label>
+                        <input type="text" class="form-control" id="cos" placeholder="e.g. Hausa Engineering, Vawulence and Problem Management, Computer Engineering" name="course">
+                        <label for="from" class="form-label mt-2">From:</label>
+                        <input type="text" class="form-control" id="from" placeholder="e.g. 2018" name="start">
+                        <label for="to" class="form-label mt-2">To:</label>
+                        <input type="text" class="form-control" id="to" placeholder="e.g. 2022" name="stop">
+                        <label for="desc" class="form-label mt-2" name="to">Description:</label>
+                        <textarea name="description" id="desc" cols="15" rows="10" placeholder="I raked the leaves and dried the money" class="form-control"></textarea>    
+                        <button type="submit my-4" class="btn btn-secondary">Save Information</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                {% comment %} <button type="button" class="btn btn-secondary">Save Information</button> {% endcomment %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal End-->
+    <!--Block Content End-->
+    {% endblock %}

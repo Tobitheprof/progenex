@@ -1,0 +1,62 @@
+    {% extends 'base.html' %}
+    {% load static %}
+    {% block content %}
+    <!--Main Section Start-->
+    <section id="education">
+        <div class="container-lg">
+            <div class="text-start-lg text-start-md text-start-sm">
+                <h4>Add a Skill</h4>
+                <p class="lead">Add some skills to backup your work and certifications and remember, don't be a one trick pony. Add multiple skills to make you stand out amongst others</p>
+                {% if messages %}
+                {% for message in messages %}
+                <p style="color:steelblue">{{message}} Click <a href="{% url 'education' %}">here</a> to add some education background.</p>
+                {% endfor %}
+                {% endif %}
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <!--For Loop Start-->
+                {% for a in skills %}
+                <div class="col">
+                  <div class="card">
+                    <!-- <img src="..." class="card-img-top" alt="..."> -->
+                    <div class="card-body">
+                      <h5 class="card-title">{{a.name}}</h5>
+                      <p class="card-text">Proficiency: {{a.proficiency}}</p>
+                      <p class="lead"><a href="{% url 'del-skill' a.id %}" style="color: black;"><i class="bi bi-trash"></a></i></p>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+                <!--For Loop End-->
+            </div>
+            <a href="#" class="btn btn-secondary mt-4" data-bs-toggle="modal" data-bs-target="#work">Add Skill</a>
+        </div>
+    </section>
+    <!--Main Section End-->
+
+    <!--Modal Start-->
+    <div class="modal fade" id="work" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <label for="skill" class="form-label">Skill Name:</label>
+                        <input type="text" class="form-control" id="skill" placeholder="e.g. Javascript, Proofreading" name="skill">
+                        <label for="proficiency" class="form-label">Proficiency:</label>
+                        <input type="number" class="form-control" id="proficiency" placeholder="From 1-100%" name="proficiency" min="0" max="100">     
+                        <button type="submit" class="btn btn-secondary my-2">Save Information</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal End-->
+    {% endblock %}

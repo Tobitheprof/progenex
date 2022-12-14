@@ -1,0 +1,201 @@
+    {% extends 'base2.html' %}
+    {% load static %}
+    {% block content %}
+    <!--Hero Section-->
+    <section id="intro">
+        <div class="container-lg">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-5 text-center text-md-start">
+                    <h1 class="display-4"><span class="fw-bold">Pro</span>genex</h1>
+                    <!-- <h4 class="display-6 text-muted">The free portfolio generator</h4> -->
+                    <p class="lead my-3 text-muted justice">Welcome to V0.1 of Progenex by Genxsis the ultimate A.I.O NoCode tool. This version was built by Tobi TheRevolutionary for testing purposes and also for the 30 days of code on GitHub. Progenex V0.1 by Genxsis let's you generate portfolios in less than 15 minutes. Feel free to check it out and tell your friends.</p>
+                    <a href="{% url 'register' %}" class="btn btn-secondary">Get Started</a>
+                </div>
+                <div class="col-md-5 d-none d-md-block text-center">
+                    <span class="goat" data-bs-placement="bottom" title="Tobi is tha GOAT">
+                        <img src="{% static 'assets/img/course-details-tab-3.png' %}" alt="coffee bag" class="img-fluid">
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Hero End-->
+
+    <!--Cards Start-->
+    <section id="about" class="bg-light mt-5">
+        <div class="container-xl">
+            <div class="text-start mx-3">
+                <h2 class="display-5 fw-bold"><span class="fw-light">|</span>Features</h2>
+                <p class="lead text-muted">What makes Progenex awesome</p>
+            </div>
+            
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+
+                <div class="col d-flex align-items-start">
+                  <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#tools"/></svg>
+                  <div>
+                    <h4 class="fw-bold mb-0">NoCode Solution</h4>
+                    <p>The Portfolio generator is only the first phase in Progenex. More products like this from Genxsis would also be launched</p>
+                  </div>
+                </div>
+
+                <div class="col d-flex align-items-start">
+                  <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#speedometer"/></svg>
+                  <div>
+                    <h4 class="fw-bold mb-0">Super Fast</h4>
+                    <p>Progenex lets you generate that free resume in less than 15 minutes all from the comfort of your device</p>
+                  </div>
+                </div>
+
+                <div class="col d-flex align-items-start">
+                    <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#gear-fill"/></svg>
+                    <div>
+                      <h4 class="fw-bold mb-0">Well Optimized</h4>
+                      <p>Progenex was optimized by the best code ninja there ever was, Chad Man Tobi.</p>
+                    </div>
+                </div>
+
+                <div class="col d-flex align-items-start">
+                    <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#collection"/></svg>
+                    <div>
+                      <h4 class="fw-bold mb-0">Organized</h4>
+                      <p>Progenex is well organized unlike your life.</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div><!-- end container -->
+    </section>
+    <!--Cards End-->
+
+    <!--Accordions Start-->
+    <section id="topics">
+        <div class="container-md">
+            <div class="text-start mx-3">
+                <h2 class="display-5 fw-bold"><span class="fw-light">|</span>FAQs</h2>
+                <p class="lead text-muted">Answers to frequently asked questions</p>
+            </div>
+            <div class="row my-5 g-5 justify-content-around align-item-center">
+                <div class="col-6 col-lg-4">
+                    <img src="{% static 'assets/img/course-details-tab-1.png' %}" alt="fsdfs" class="img-fluid">
+                </div>
+                <div class="col-lg-6">
+                    <!--Accordion Items Start-->
+                    <div class="accordion" id="chapters">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-1">
+                                <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#chapter-1" aria-expanded="true" aria-controls="chapter-1">Is it free?</button>
+                            </h2>
+                            <div id="chapter-1" class="accordion-collapse collapse" aria-labelledby="heading-1" data-bs-target="#chapters">
+                                <div class="accordion-body">
+                                    <p>Yes, Progenex is <span class="fw-bold">100%</span> Free</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-2">
+                                <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#chapter-2" aria-expanded="true" aria-controls="chapter-2">Who made Progenex?</button>
+                            </h2>
+                            <div id="chapter-2" class="accordion-collapse collapse" aria-labelledby="heading-2" data-bs-target="#chapters">
+                                <div class="accordion-body">
+                                    <p>Progenex was made by Tobi TheRevolutionary and, it a 100% free tool that helps users to generate and share cloud hosted portfolios that help to reflect what ever it is that they do.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-3">
+                                <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#chapter-3" aria-expanded="true" aria-controls="chapter-3">A weird Dad joke.</button>
+                            </h2>
+                            <div id="chapter-3" class="accordion-collapse collapse" aria-labelledby="heading-3" data-bs-target="#chapters">
+                                <div class="accordion-body">
+                                    <p>What do you call a pair of smart pants?<br><span class="fw-bold">Jean</span>ius</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-4">
+                                <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#chapter-4" aria-expanded="true" aria-controls="chapter-4">Why make it free when sapa is raping you?</button>
+                            </h2>
+                            <div id="chapter-4" class="accordion-collapse collapse" aria-labelledby="heading-4" data-bs-target="#chapters">
+                                <div class="accordion-body">
+                                    <p>All I can say is <span class="fw-bold">"omo"</span>. But, you can help keep me motivated to make awesome no code solutions by showing me love<br> <span class="fw-bold">2360493036</span> Zenith Bank.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Accordion Items End-->
+
+            </div>
+
+        </div>
+    </section>
+    <!--Accordions End-->
+
+
+<!-- contact form -->
+  <!-- form-control, form-label, form-select, input-group, input-group-text -->
+<section id="contact" class="bg-light">
+    <div class="container-lg">
+      
+        <div class="text-center mx-3">
+            <h2 class="display-5 fw-bold">Contact</h2>
+            <p class="lead text-muted">Got a question? Feel free to contact me by filling the form below</p>
+        </div>
+      <div class="row justify-content-center my-5">
+        <div class="col-lg-6">
+          
+          <form>
+            <label for="email" class="form-label">Email address:</label>
+            <div class="input-group mb-4">
+              <span class="input-group-text">
+                <i class="bi bi-envelope-fill text-secondary"></i>
+              </span>
+              <input type="text" id="email" class="form-control" placeholder="e.g. mario@example.com" />
+              <!-- tooltip -->
+              <span class="input-group-text">
+                <span class="goat" data-bs-placement="bottom" title="Enter an email address I can reply to.">
+                  <i class="bi bi-question-circle text-muted"></i>
+                </span>
+              </span>
+              <!-- tooltip end -->
+            </div>
+            <label for="name" class="form-label">Name:</label>
+            <div class="mb-4 input-group">
+              <span class="input-group-text">
+                <i class="bi bi-person-fill text-secondary"></i>
+              </span>
+              <input type="text" id="name" class="form-control" placeholder="e.g. Mario" />
+              <!-- tooltip -->
+              <span class="input-group-text">
+                <span class="goat" data-bs-placement="bottom" title="Do you not know your name?">
+                  <i class="bi bi-question-circle text-muted"></i>
+                </span>
+              </span>
+            </div>
+            <label for="subject" class="form-label">What is your question about?</label>
+            <div class="mb-4 input-group">
+                <span class="input-group-text"><i class="bi bi-chat-right-dots-fill text-secondary"></i></span>
+                <input type="text" id="name" class="form-control" name="subject" placeholder="e.g. How do I support Tobi?" />
+                <!--Tooltip Start -->    
+                <span class="input-group-text">
+                    <span class="goat" data-bs-placement="bottom" title="So, what's your question about?">
+                        <i class="bi bi-question-circle text-muted"></i>
+                    </span>
+                </span>
+                <!--Tooltip end-->
+            </div>
+            <div class="mb-4 mt-5 form-floating">
+              <textarea class="form-control" id="query" style="height: 140px" placeholder="query"></textarea>
+              <label for="query">Your query...</label>
+            </div>
+            <div class="mb-4 text-center">
+              <button type="submit" class="btn btn-secondary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,107 @@
+    {% extends 'base.html' %}
+    {% load static %}
+    {% block content %}
+    <!--Main Section start-->
+    <section id="education">
+        <div class="container-lg">
+            <div class="text-start-lg text-start-md text-start-sm">
+                <h4>Personal & Contact Information</h4>
+                <p class="lead">Here, you can update or change any of your personal & contact information</p>
+                <div class="border-bottom"></div>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <!--For Loop Start-->
+                <div class="col">
+                  <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                          <label for="firstName" class="form-label">First Name:</label>
+                          <div class="input-group has-validation">
+                            <span class="input-group-text"><i class="bi bi-person"></i></span>
+                            <input type="text" class="form-control" id="username" placeholder="First Name" required disabled value="{{user.first_name}}"> 
+                          </div>                        
+                        </div>
+            
+                        <div class="col-sm-6">
+                          <label for="lastName" class="form-label">Last Name:</label>
+                          <div class="input-group has-validation">
+                            <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                            <input type="text" class="form-control" id="username" placeholder="Last Name" required disabled value="{{user.last_name}}">
+                          </div>                        
+                        </div>
+
+                        <div class="col-12">
+                          <label for="lastName" class="form-label">Occupation:</label>
+                          <div class="input-group has-validation">
+                            <span class="input-group-text"><i class="bi bi-briefcase"></i></span>
+                            <input type="text" class="form-control" id="username" placeholder="Last Name" required value="{{user_profile.occupation}}" name="occupation">
+                          </div>                        
+                        </div>
+
+                        <div class="col-12">
+                            <label for="username" class="form-label">Profile Picture:</label>
+                            <div class="input-group has-validation">
+                              <!-- <span class="input-group-text">@</span> -->
+                              <input type="file" class="form-control" id="username" placeholder="Username" name="image">
+                            </div>
+                        </div>
+            
+                        <div class="col-12">
+                          <label for="username" class="form-label">Username:</label>
+                          <div class="input-group has-validation">
+                            <span class="input-group-text">@</span>
+                            <input type="text" class="form-control" id="username" placeholder="Username" required disabled value="{{user.username}}">
+                          </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="username" class="form-label">Address:</label>
+                            <div class="input-group">
+                              <span class="input-group-text"><i class="bi bi-house"></i></span>
+                              <input type="text" class="form-control" id="username" placeholder="Address" required name="address" value="{{user_profile.address}}">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                          <label for="username" class="form-label">Phone Number:</label>
+                          <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                            <input type="number" class="form-control" id="username" placeholder="Phone Number" name="phone" value="{{user_profile.phone_number}}" required>
+                          </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="username" class="form-label">Twitter Username:</label>
+                            <div class="input-group has-validation">
+                              <span class="input-group-text"><i class="bi bi-twitter"></i></span>
+                              <input type="text" class="form-control" id="username" placeholder="Enter in https format E.g. https://twitter.com/tobitheprof" required name="twitter" value="{{user_profile.twitter_username}}" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="username" class="form-label">LinkedIn Link:</label>
+                            <div class="input-group">
+                              <span class="input-group-text"><i class="bi bi-linkedin"></i></span>
+                              <input type="text" class="form-control" id="username" placeholder="Enter in https format E.g https://linkedin.com/tobi" required name="linkedin" value="{{user_profile.linkedin_link}}" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                          <label for="desc" class="form-label">About Me:</label>
+                          <textarea name="desc" id="desc" cols="30" rows="10" placeholder="Write Something About Yourself" class="form-control" required>{{user_profile.about_me}}</textarea>
+                        </div>
+                        
+                        <button class="btn btn-secondary" type="submit">Update Profile</button>
+                        
+
+                    </div>
+                  </form>
+                </div>
+                <!--For Loop End-->
+            </div>
+            <!-- <a href="#" class="btn btn-secondary mt-4" data-bs-toggle="modal" data-bs-target="#work">Add Experience</a> -->
+        </div>
+    </section>
+    <!--Main Section End-->
+    {% endblock %}
