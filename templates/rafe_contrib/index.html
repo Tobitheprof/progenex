@@ -1,0 +1,239 @@
+{% extends 'rafe_contrib/rafe_base.html' %}
+{% block content %}
+{% load static %}
+<section class="d-flex container-md justify-content-center p-5">
+    <div class="card h-100 mb-3 border-0" style="max-width: 900px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+            <img draggable="false" src="{% static 'rafe_contrib/assets/img/course-details-tab-3.png' %}" class="img-fluid rounded-start" alt="Card title">
+            </div>
+            <div class="col-md-8">
+            <div class="card-body">
+                <div class="user-select-none">
+                    <span class="d-flex" style="font-size: larger;">
+                        <h1 class="text-warning" style="font-weight: bold;">Pro</h1>
+                        <h1>gen</h1>
+                        <h1 class="text-danger" style="font-weight: bold;">
+                            <b>X</b>
+                        </h1>
+                    </span>
+                </div>
+                <div class="card-text text-muted lead my-3 p-2 text-muted">
+                    Welcome to Progenx, the revolutionary no-code startup tool! Progenx makes it easier than ever to create and launch a business without needing to write any code. With Progenx, you can quickly build a website, manage customer relationships, and even process payments - all with just a few clicks. Get started today and experience the power of Progenx!
+                </div>
+                <div class="text-start p-2">
+                    <a href="{% url 'rafe_contrib-register' %}" class="btn btn-secondary">Get started</a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="about bg-light" id="about">
+    <div class="container-md">
+        <div class="mb-5 py-5 container-md ">
+            <h1 class="border-start border-4 ps-3 border-dark display-5 fw-bold" >Features</h1>
+            <p class="lead text-muted px-4">What makes progenx awesome?</p>
+        </div>
+        <div class="row g-3 d-flex justify-content-center pb-5">
+            <div class="col-md-3">
+                <div class="card h-100 border-0 bg-none">
+                    <div class="card-body">
+                        <div class="d-flex gap-3">
+                            <h3>
+                                <i class="bi-tools"></i>
+                            </h3>
+                            <div>
+                                <h4 class="card-title fw-bold mb-0">NoCode solution</h4>
+                                <p class="card-text">
+                                    The Portfolio generator is only the first phase in Progenex. More products like this from Genxsis would also be launched
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 border-0 bg-none">
+                    <div class="card-body">
+                        <div class="d-flex gap-3">
+                            <h3 class="">
+                                <i class="bi-speedometer"></i>
+                            </h3>
+                            <div>
+                                <h4 class="card-title fw-bold mb-0">Super Fast</h4>
+                                <p class="card-text">
+                                    Progenx enables users to quickly and easily create digital products without the need for coding. Our platform is designed to help entrepreneurs and teams of all sizes build and launch products quickly and efficiently. We provide a suite of tools that allow users to design, develop, and deploy their products in a fraction of the time it would take them to code it from scratch.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 border-0 bg-none">
+                    <div class="card-body">
+                        <div class="d-flex gap-3">
+                            <h3 class="">
+                                <i class="bi-gear-fill"></i>
+                            </h3>
+                            <div>
+                                <h4 class="card-title fw-bold mb-0">Well Optimized</h4>
+                                <p class="card-text">
+                                    Overall, Progenx is a well optimized no-code tool that allows users to quickly create and customize applications for their business needs. It offers a variety of features and deployment options, making it easy to use for businesses of all sizes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 border-0 bg-none">
+                    <div class="card-body">
+                        <div class="d-flex gap-3">
+                            <h3 class="">
+                                <i class="bi-collection"></i>
+                            </h3>
+                            <div>
+                                <h4 class="card-title fw-bold mb-0">Organized</h4>
+                                <p class="card-text">
+                                    Progenx focuses on providing tools and resources to help entrepreneurs and business owners launch and manage their businesses. We provide an integrated suite of tools and services that enable users to quickly and easily create and manage their businesses.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container-md my-5">
+    <h1 class="text-black border-start border-4 ps-3 border-dark display-5 fw-bold" >FAQ's</h1>
+    <p class="lead text-muted px-4">Answers to frequently asked questions</p>
+    <div class="card h-100 mb-3 border-0">
+        <div class="row bg-paitmary">
+            <div class="col-md-4">
+                <img draggable="false" src="{% static 'rafe_contrib/assets/img/course-details-tab-1.png' %}" class="img-fluid rounded-start" alt="Card title">
+            </div>
+            <div class="col-md-8">
+                <div class="accordion" id="faq">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="Faq_h1">
+                            <button class="accordion-button form_utility"  type="button" data-bs-toggle="collapse" data-bs-target="#faq_collapse_one" aria-expanded="true" aria-controls="faq_collapse_one">
+                                Is it free?
+                            </button>
+                        </h2>
+                        <div id="faq_collapse_one" class="accordion-collapse collapse show" aria-labelledby="Faq_h1" data-bs-parent="#Faq_h1">
+                            <div class="accordion-body p-4">
+                                Yes, Progenex is <b>100%</b> Free
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="Faq_h2">
+                            <button class="accordion-button form_utility"  type="button" data-bs-toggle="collapse" data-bs-target="#faq_collapse_two" aria-expanded="true" aria-controls="faq_collapse_two">
+                                What is progenx?
+                            </button>
+                        </h2>
+                        <div id="faq_collapse_two" class="accordion-collapse collapse show" aria-labelledby="Faq_h2" data-bs-parent="#Faq_h2">
+                            <div class="accordion-body p-4">
+                                Progenx is a no-code platform that enables users to quickly and easily create digital products without the need for coding. Our platform is designed to help entrepreneurs and teams of all sizes build and launch products quickly and efficiently. We provide a suite of tools that allow users to design, develop, and deploy their products in a fraction of the time it would take them to code it from scratch. In addition, our platform offers a range of integrations and features to help users customize their products and make them stand out from the competition.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="Faq_h3">
+                            <button class="accordion-button form_utility"  type="button" data-bs-toggle="collapse" data-bs-target="#faq_collapse_three" aria-expanded="true" aria-controls="faq_collapse_three">
+                                Benefits?
+                            </button>
+                        </h2>
+                        <div id="faq_collapse_three" class="accordion-collapse collapse show" aria-labelledby="Faq_h3" data-bs-parent="#Faq_h3">
+                            <div class="accordion-body">
+                                <ol>
+                                    <li class="p-3">
+                                        Increased Efficiency: Progenx eliminates the need to write code, which can be time consuming and difficult. This allows users to quickly build applications and get them up and running in no time.
+                                    </li>
+                                    <div class="dropdown-divider"></div>
+                                    <li class="p-3">
+                                        Cost Savings: Progenx eliminates the need to hire developers or purchase expensive coding software, which can save users a lot of money.
+                                    </li>
+                                    <div class="dropdown-divider"></div>
+                                    <li class="p-3">
+                                        Easy to Use: Progenx is an intuitive and user-friendly platform that makes it easy for anyone to build an application. It also comes with a wide range of features and tools to help users customize their applications.
+                                    </li>
+                                    <div class="dropdown-divider"></div>
+                                    <li class="p-3">
+                                        Scalability: Progenx can be used to build applications of any size, from small projects to large enterprise applications. This makes it a great choice for businesses of any size.
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+</section>
+<section class="bg-light" id="contact">
+    <div class="container-md">
+        <div class="text-center p-5">
+            <h2 class="display-5 fw-bold">Contact</h2>
+            <p class="lead text-muted">Got a question? Feel free to contact us by filling the form below</p>
+        </div>
+        <form class="row align-items-center pb-5" style="flex-direction: column;">
+            <div class="col-md-6">
+                <label for="" class="mb-2 ms-2 text-muted">Email address:</label>
+                <div class="mb-4 input-group">
+                    <span class="input-group-text">
+                        <i class="bi-envelope-fill text-secondary"></i>
+                    </span>
+                    <input type="email" id="email" class="form_utility form-control" name="email" placeholder="e.g. johndoe@mail.com" />
+                    <span class="input-group-text">
+                        <span class="" data-bs-placement="bottom" title="So, what's your question about?">
+                            <i class="bi bi-question-circle text-muted"></i>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="" class="mb-2 ms-2 text-muted">Name:</label>
+                <div class="mb-4 input-group">
+                    <span class="input-group-text">
+                        <i class="bi bi-person-fill text-secondary"></i>
+                    </span>
+                    <input type="text" id="name" class="form_utility form-control" name="name" placeholder="e.g. Annie Maurie" />
+                    <span class="input-group-text">
+                        <span class="" data-bs-placement="bottom" title="So, what's your question about?">
+                            <i class="bi bi-question-circle text-muted"></i>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="" class="mb-2 ms-2 text-muted">so, what's your question?</label>
+                <div class="mb-4 input-group">
+                    <span class="input-group-text">
+                        <i class="bi bi-chat-right-dots-fill text-secondary"></i>
+                    </span>
+                    <input type="text" id="name" class="form_utility form-control" name="subject" placeholder="e.g. why is the sky blue?" />
+                    <span class="input-group-text">
+                        <span class="" data-bs-placement="bottom" title="So, what's your question about?">
+                            <i class="bi bi-question-circle text-muted"></i>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="" class="mb-2 ms-2 text-muted">Want to give a more detailed explanation?</label>
+                <div class="form-floating mb-4">
+                    <textarea class="form-control" name="" id="" rows="3" placeholder="Your query" style="height: 150px; resize: none;"></textarea>
+                    <label for="" class="mb-2 ms-2 text-muted">Your query..</label>
+                </div>
+            </div>
+            <div class="text-center col-md-5">
+                <button type="submit" class="w-100 btn btn-secondary px-4">Send</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock content %}

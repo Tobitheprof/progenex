@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap-icons/bootstrap-icons.css' %}">
+    <style>
+        section{
+            padding: 35px 0;
+        }
+    </style>
+    <title>{{title}}</title>
+</head>
+<body>
+    <!--Nav Start-->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container-xl">
+            <a href="#intro" class="navbar-brand">
+                <i class="bi bi-book-half"></i>
+                <span class="fw-bold">Pro</span>genex
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+                <ul class="navbar-nav"> 
+                    <li class="nav-item">
+                        <a href="#sidebar" class="nav-link" data-bs-toggle="offcanvas" role="button" aria-controls="sidebar">Account Settings</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Nav End-->
+    {% block content %}
+
+
+    {% endblock %}
+    <!--Offcanvas Start--> 
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar" aria-labelledby="sidebar-label">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="sidebar-label">Account Settings</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+
+        <div class="offcanvas-body">
+            <a href="{% url 'p-and-c' %}" style="color: black; text-decoration: none;"><p class="lead ms-3"><i class="bi bi-person me-2"></i>Personal & Contact Information</p></a>
+            <a href="{% url 'work' %}" style="color: black; text-decoration: none;"><p class="lead ms-3"><i class="bi bi-briefcase me-2"></i>Work Experince</p></a>
+            <a href="{% url 'education' %}" style="color: black; text-decoration: none;"><p class="lead ms-3"><i class="bi bi-book me-2"></i>Education</p></a>
+            <a href="{% url 'skills' %}" style="color: black; text-decoration: none;"><p class="lead ms-3"><i class="bi bi-check-all me-2"></i>Skills</p></a>
+            <a href="{% url 'achievements' %}" style="color: black; text-decoration: none;"><p class="lead ms-3"><i class="bi bi-award me-2"></i>Achievements</p></a>
+            <a href="{% url 'resume' user %}" style="color: black; text-decoration: none;"><p class="lead ms-3"><i class="bi bi-briefcase-fill me-2"></i>Poftfolio</p></a>
+        </div>
+        
+        <div class="offcanvas-footer">
+            <a href="{% url 'logout' %}" style="text-decoration: none; color: black;"><p class="lead ms-3"><i class="bi bi-box-arrow-left me-2"></i><span style="color: red;">Logout</span></p></a>
+        </div>
+
+    </div>
+    <!--Offcanvas End-->
+
+    <script src="{% static 'assets/js/bootstrap.bundle.js' %}"></script>
+    <!--Tool tip JS Start-->
+    <script>
+        const tooltips = document.querySelectorAll('.goat')
+        tooltips.forEach(t =>{
+            new bootstrap.Tooltip(t)
+        })
+    </script>
+    <!--Tool tip JS End-->
+</body>
+</html>

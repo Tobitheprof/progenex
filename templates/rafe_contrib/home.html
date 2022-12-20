@@ -1,0 +1,54 @@
+{% extends 'rafe_contrib/rafe_base2.html' %}
+{% block content %}
+    <section class="container-md text-black my-5">
+        <div class="text-center mb-4">
+            <p class="lead">
+                Welcome to <b class="fw-bold">Pro</b>genex the future of No-Code get started today by generating a free portfolio today that you can use to share your work.
+            </p>
+        </div>
+        <div class="list-group">
+            <a href="{% url 'rafe_contrib-personal_contact' %}" class="list-group-item list-group-item-action">
+                <h5>
+                    Update your personal & contact Information
+                </h5>
+                <p>
+                    To be profesional as possible, it's best you provide up to date and accurate information in regards to you personally and your contact information
+                </p>
+            </a>
+            <a href="{% url 'rafe_contrib-work' %}" class="list-group-item list-group-item-action">
+                <h5>
+                    Add some work experience
+                </h5>
+                <p>
+                    Employers will only go for someone with work experience. But can you really get experience when no one want's to hire someone without experience?
+                    <br>
+                    It's quite simple, take up volunteer jobs and entry level positions too, it's that simple.
+                </p>
+            </a>
+            <a href="{% url 'rafe_contrib-education' %}" class="list-group-item list-group-item-action">
+                <h5>
+                    Education
+                </h5>
+                <p>
+                    Eduation as we all know is the key to success. Make yoru portfolio stand out by adding your eduational background  to it.
+                </p>
+            </a>
+            <a href="{% url 'rafe_contrib-skills' %}" class="list-group-item list-group-item-action">
+                <h5>
+                    Skills
+                </h5>
+                <p>
+                    Add your skills preferable more than one, don't be a one trick pony like Pobi
+                </p>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <h5>
+                    All done with everything above??
+                </h5>
+                <p>
+                    If you've completed all task above, then go ahead and click this message to view your portfolio
+                </p>
+            </a>
+        </div>
+    </section>
+{% endblock content %}

@@ -1,0 +1,71 @@
+<!-- 
+    !foot - notes
+    *alt tagline - "Creating a world of no-code possibilities"
+    
+ -->
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{title}}</title>
+        <link rel="stylesheet" href="{% static 'rafe_contrib/assets/bootstrap-icons/bootstrap-icons.css' %}">
+        <link rel="stylesheet" href="{% static 'rafe_contrib/css/bootstrap.css' %}" />
+        <link rel="stylesheet" href="{% static 'rafe_contrib/css/rafe_style.css' %}" />
+        <script defer src="{% static 'rafe_contrib/js/bootstrap.bundle.min.js' %}"></script>
+        <script defer src="{% static 'rafe_contrib/js/rafe_app.js' %}"></script>
+    </head>
+    <body>
+        <header class="position-fixed top-0 w-100 max-z-index">
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark p-1">
+                <div class="container">
+                <a class="navbar-brand" href="{% url 'rafe_contrib-index' %}">
+                        <span class="d-flex" style="font-size: larger;">
+                            <b class="text-warning" style="font-weight: bold;">Pro</b>
+                            <span>gen</span>
+                            <span class="text-danger" style="font-weight: bold;">
+                                <b>X</b>
+                            </span>
+                        </span>
+                    </a>
+                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#nav_collapse" aria-controls="nav_collapse"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse bg-prim" id="nav_collapse">
+                        <ul class="navbar-nav justify-content-end me-auto mt-2 mt-lg-0 w-100">
+                        {% if request.user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'rafe_contrib-home' %}" aria-current="page">Home</a>
+                            </li>
+                        {% endif %}
+                        {% if request.user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'rafe_contrib-logout' %}" aria-current="page">Logout</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'rafe_contrib-register' %}" aria-current="page">Sign Up</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'rafe_contrib-login' %}" aria-current="page">Login</a>
+                            </li>
+                        {% endif %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about" aria-current="page">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact" aria-current="page">Contact</a>
+                        </li>
+                        </ul>
+                    </div>
+            </div>
+            </nav>
+        </header>
+        <main class="mt-5 pt-5">
+        {% block content %}{% endblock content %}
+        </main>
+    </body>
+</html>

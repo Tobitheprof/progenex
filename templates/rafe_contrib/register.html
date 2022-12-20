@@ -1,0 +1,182 @@
+{% extends 'rafe_contrib/rafe_base.html' %}
+{% block content %}
+{% load static %}
+    <section class="container-md">
+        <div class="text-center">
+            <h4 class="fw-bold">Sign Up</h4>
+            <div class="lead">
+                <span>
+                    Sign up to sizes build and launch products quickly and efficiently!!
+                </span>
+            </div>
+            <div class="mt-2 mb-5">
+                Already have an account? click <a href="{% url 'rafe_contrib-login' %}">here</a> to login
+            </div>
+        </div>
+    </section>
+    <section class="container-md mb-5">
+        <form method="POST" class="row justify-content-center align-items-center g-2" style="flex-direction: column;">
+            {% csrf_token %}
+            <div class="mb-3 col-md-6">
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="bi bi-person text-secondary"></i>
+                    </span>
+                    <input type="text" id="name" class="form_utility form-control" name="first_name" placeholder="First Name" value="{{first_name}}"/>
+                    <span class="input-group-text">
+                        <span class="">
+                            <i class="bi bi-question-circle text-muted"></i>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="mb-3 col-md-6">
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="bi bi-person-fill text-secondary"></i>
+                    </span>
+                    <input type="text" id="name" class="form_utility form-control" name="last_name" placeholder="Last Name" value="{{last_name}}"/>
+                    <span class="input-group-text">
+                        <span class="">
+                            <i class="bi bi-question-circle text-muted"></i>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="mb-3 col-md-6">
+                {% if email_taken_error %}
+                    <small class="text-danger">Sorry, but this email is already in use</small>
+                    <div class="mt-2 input-group border rounded" style="border-color: #dc3545 !important; box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;">
+                        <span class="input-group-text">
+                            <i class="bi-envelope-fill text-secondary"></i>
+                        </span>
+                        <input type="email" id="email" class="form_utility form-control" name="email" placeholder="e.g. johndoe@mail.com" value="{{email}}"/>
+                        <span class="input-group-text">
+                            <span class="">
+                                <i class="bi bi-question-circle text-muted"></i>
+                            </span>
+                        </span>
+                    </div>
+                {% else %}
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi-envelope-fill text-secondary"></i>
+                        </span>
+                        <input type="email" id="email" class="form_utility form-control" name="email" placeholder="e.g. johndoe@mail.com" value="{{email}}"/>
+                        <span class="input-group-text">
+                            <span class="">
+                                <i class="bi bi-question-circle text-muted"></i>
+                            </span>
+                        </span>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="mb-3 col-md-6">
+                {% if username_taken_error %}
+                    <small class="text-danger">Sorry, but this username is already in use</small>
+                    <div class="mt-2 input-group border rounded" style="border-color: #dc3545 !important; box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;">
+                        <span class="input-group-text">
+                            <b class="fw-bold">@</b>
+                        </span>
+                        <input type="text" id="name" class="form_utility form-control" name="username" placeholder="Username" value="{{username}}"/>
+                        <span class="input-group-text">
+                            <span class="">
+                                <i class="bi bi-question-circle text-muted"></i>
+                            </span>
+                        </span>
+                    </div>
+                {% else %}
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <b class="fw-bold">@</b>
+                        </span>
+                        <input type="text" id="name" class="form_utility form-control" name="username" placeholder="Username" value="{{username}}"/>
+                        <span class="input-group-text">
+                            <span class="">
+                                <i class="bi bi-question-circle text-muted"></i>
+                            </span>
+                        </span>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="mb-b3 col-md-6">
+                {% if password_length_error %}
+                <div class="mt-2 input-group border rounded" style="border-color: #dc3545 !important; box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;">
+                {% else %}
+                <div class="input-group">
+                {% endif %}
+                    <span class="input-group-text">
+                        <i class="bi-file-lock2-fill text-secondary"></i>
+                    </span>
+                    <input type="password" id="password" class="form_utility form-control" name="password" placeholder="Password" value="{{password}}"/>
+                    <span class="input-group-text" id="reveal">
+                        <span class="">
+                            <i class="bi-eye-fill eye_icon"></i>
+                        </span>
+                    </span>
+                </div>
+                {% if password_length_error %}
+                <div class="form-text text-danger">
+                {% else %}
+                <div class="form-text text-muted px-3">
+                {% endif %}
+                    password should have preferably up to <b class="fw-bold">Eight</b> characters
+                </div>
+            </div>
+            <div class="mb-3 col-md-6">
+                {% if password_do_not_match %}
+                    <small class="text-danger">Passwords do not match.</small>
+                    <div class="mt-2 input-group border rounded" style="border-color: #dc3545 !important; box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;">
+                        <span class="input-group-text">
+                            <i class="bi-file-lock2 text-secondary"></i>
+                        </span>
+                        <input type="password" id="password_confirm" class="bg-none form_utility form-control" name="password_confirm" placeholder="Confirm Password" style="border-right: 0;" value="{{password_confirm}}"/>
+                        <span class="input-group-text" id="confirm_reveal">
+                            <span class="">
+                                <i class="bi-eye-fill confirm_eye_icon"></i>
+                            </span>
+                        </span>
+                    </div>
+                {% else %}
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi-file-lock2 text-secondary"></i>
+                        </span>
+                        <input type="password" id="password_confirm" class="bg-none form_utility form-control" name="password_confirm" placeholder="Confirm Password" style="border-right: 0;" value="{{password_confirm}}"/>
+                        <span class="input-group-text" id="confirm_reveal">
+                            <span class="">
+                                <i class="bi-eye-fill confirm_eye_icon"></i>
+                            </span>
+                        </span>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="text-center col-md-5">
+                <button type="submit" class="w-100 btn btn-secondary signup">Sign up</button>
+            </div>
+        </form>
+    </section>
+    <script>
+        const confirm_passwordInput = document.getElementById('password_confirm');
+        const passwordInput = document.getElementById('password');
+        const confirm_revealButton = document.getElementById('confirm_reveal');
+        const revealButton = document.getElementById('reveal');
+        confirm_revealButton.addEventListener('click', () => {
+            document.querySelector(".confirm_eye_icon").classList.toggle("bi-eye-slash-fill")
+            if (confirm_passwordInput.type === "password") {
+                confirm_passwordInput.type = "text";
+            } else {
+                confirm_passwordInput.type = "password";
+            }
+        });
+        // for password normal reveal
+        revealButton.addEventListener('click', () => {
+            document.querySelector(".eye_icon").classList.toggle("bi-eye-slash-fill")
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        });
+    </script>
+{% endblock content %}

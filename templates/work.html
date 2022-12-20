@@ -1,0 +1,70 @@
+    {% extends 'base.html' %}
+    {% load static %}
+    {% block content %}
+    <section id="education">
+        <div class="container-lg">
+            <div class="text-start-lg text-start-md text-start-sm">
+                <h4>Work History</h4>
+                <p class="lead">There is a saying that goes experience is the best teacher. Adding some work experience will do you good. Especially in the face of potential employers</p>
+                {% if messages %}
+                {% for message in messages %}
+                <p style="color:steelblue">{{message}}. Click <a href="{% url 'skills' %}">here</a> to add some skills.</p>
+                {% endfor %}
+                {% endif %}
+                <div class="border-bottom mb-2"></div>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+
+                <!--For Loop Start-->
+                {% for a in work %}
+                <div class="col">
+                  <div class="card">
+                    <!-- <img src="..." class="card-img-top" alt="..."> -->
+                    <div class="card-body">
+                      <h5 class="card-title">{{a.title}} <span class="fw-light lead">| {{a.start}}-{{a.stop}}</span></h5>
+                      <p class="lead">{{a.org_name}}</p>
+                      <p>{{a.description}}</p>
+                      <p class="lead"><a href="{% url 'del-work' a.id %}" style="color: black;"><i class="bi bi-trash"></a></i></p>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+                <!--For Loop End-->
+            </div>
+            <a href="#" class="btn btn-secondary mt-4" data-bs-toggle="modal" data-bs-target="#work">Add Experience</a>
+        </div>
+    </section>
+
+
+    <!--Modal Start-->
+    <div class="modal fade" id="work" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Some Work</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <label for="org_name" class="form-label">Organization Name:</label>
+                        <input type="text" class="form-control" id="org_name" placeholder="e.g. NNPC" name="org_name">
+                        <label for="title" class="form-label">Role:</label>
+                        <input type="text" class="form-control" id="title" placeholder="e.g. Security Guard" name="role">
+                        <label for="from" class="form-label">From:</label>
+                        <input type="text" class="form-control" id="from" placeholder="e.g. 2018" name="from">
+                        <label for="to" class="form-label">To:</label>
+                        <input type="text" class="form-control" id="to" placeholder="e.g. Present 0r 2019" name="to">
+                        <label for="desc" class="form-label">Description:</label>
+                        <textarea name="desc" id="desc" cols="30" rows="10" placeholder="Add a description" class="form-control mt-2"></textarea>
+                        <div class="modal-footer">
+                            <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                            <button type="submit" class="btn btn-secondary">Save Information</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal End-->
+    {% endblock %}

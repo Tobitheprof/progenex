@@ -1,0 +1,76 @@
+{% extends 'rafe_contrib/rafe_base.html' %}
+{% block content %}
+{% load static %}
+    <section class="container-md">
+        <div class="text-center">
+            <h4 class="fw-bold">Login</h4>
+            <div class="lead">
+                <span>
+                    Hey there, Progenex wasn't the same without you. Login to continue
+                </span>
+            </div>
+            <div class="mt-2 mb-5">
+                Don't have an account? click <a href="{% url 'rafe_contrib-register' %}">here</a> to register
+            </div>
+        </div>
+    </section>
+    <section class="container-md mb-5">
+        <form method="POST" class="row justify-content-center align-items-center g-2" style="flex-direction: column;">
+            <!-- *making users able to use email or user name to login makes much sense-->
+            {% csrf_token %}
+            <div class="col-md-6">
+                {% if invalid_username_or_password %}
+                    <small class="text-danger">Invalid Username or password.</small>
+                    <div class="mt-2 input-group border rounded" style="border-color: #dc3545 !important; box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;">
+                {% else %}
+                <div class="mb-3 input-group">
+                {% endif %}
+                    <span class="input-group-text">
+                        <b class="fw-bold">@</b>
+                    </span>
+                    <input type="text" id="name" class="form_utility form-control" name="username" placeholder="Username or email" value="{{username}}"/>
+                    <span class="input-group-text">
+                        <span class="">
+                            <i class="bi bi-question-circle text-muted"></i>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                {% if invalid_username_or_password %}
+                    <div class="input-group border rounded" style="border-color: #dc3545 !important; box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;">
+                {% else %}
+                    <div class="mb-3 input-group">
+                {% endif %}
+                    <span class="input-group-text">
+                        <i class="bi-file-lock2-fill text-secondary"></i>
+                    </span>
+                    <input type="password" id="password" class="form_utility form-control" name="password" placeholder="Password" value="{{password}}"/>
+                    <span class="input-group-text" id="reveal">
+                        <span class="">
+                            <i class="bi-eye-fill eye_icon"></i>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="text-center text-muted my-4">
+                Forgot password? Don't worry we got you covered. Click <a href="#">here</a> to reset.
+            </div>
+            <div class="text-center col-md-5">
+                <button type="submit" class="w-100 btn btn-secondary">Login</button>
+            </div>
+        </form>
+    </section>
+    <script>
+        const revealButton = document.getElementById('reveal');
+        const passwordInput = document.getElementById('password');
+        revealButton.addEventListener('click', () => {
+            document.querySelector(".eye_icon").classList.toggle("bi-eye-slash-fill")
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        });
+    </script>
+{% endblock content %}

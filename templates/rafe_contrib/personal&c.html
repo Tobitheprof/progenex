@@ -1,0 +1,115 @@
+{% extends 'rafe_contrib/rafe_base2.html' %}
+{% block content %}
+    <form method="post" class="container-md p-4">
+        {% csrf_token %}
+        <h4>Personal & Contact Information</h4>
+        <p class="lead">Here, you can update or change any of your personal & contact information</p>
+        <div class="border-bottom"></div>
+        <div class="row g-3 gx-4 mt-3">
+            <div class="col-md-4">
+                <label for="" class="ms-2 form-label">First Name:</label>
+                <div class="input-group has-validation">
+                    <span class="input-group-text">
+                        <i class="bi bi-person"></i>
+                    </span>
+                    <input type="text" name="first_name" class="form-control" placeholder="First Name" required="" disabled="" value="{{user.first_name | title}}"> 
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="" class="ms-2 form-label">Last Name:</label>
+                <div class="input-group has-validation">
+                    <span class="input-group-text">
+                        <i class="bi bi-person-fill"></i>
+                    </span>
+                    <input type="text" name="last_name" class="form-control" placeholder="Last Name" required="" disabled="" value="{{user.last_name | title}}"> 
+                </div>
+            </div>
+        </div>
+        <div class="row g-3 gx-4 mt-3">
+            <div class="col-md-8">
+                <label for="" class="form-label">Occupation</label>
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="bi-briefcase"></i>
+                    </span>
+                    <input type="text" name="occupation" class="form-control" placeholder="Occupation" required="" value="{{user_profile.occupation}}"> 
+                </div>
+            </div>
+            <div class="col-md-8 mt-3">
+                <label for="" class="form-label">Profile Picture:</label>
+                    <input type="file" class="form-control" name="image" id="" aria-describedby="profile pciture" value="{{user_profile.profile_img}}">
+                </div>
+            </div>
+            <div class="col-md-8 mt-3">
+                <label for="" class="form-label">Username:</label>
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <b>@</b>
+                    </span>
+                    <input type="text" name="username" class="form-control" placeholder="username" required="" disabled value="{{request.user}}"> 
+                </div>
+            </div>
+            <!--  -->
+            <div class="col-md-8 mt-3">
+                <label for="" class="form-label">Address:</label>
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="bi-house"></i>
+                    </span>
+                    <input type="text" name="address" class="form-control" placeholder="Address" required="" value="{{user_profile.address}}"> 
+                </div>
+            </div>
+            <div class="col-md-8 mt-3">
+                <label for="" class="form-label">Phone Number:</label>
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="bi-telephone"></i>
+                    </span>
+                    <input type="text" name="phone_number" class="form-control" placeholder="phone number" required="" value="{{user_profile.phone_number}}"> 
+                </div>
+            </div>
+            <div class="col-md-8 mt-3">
+                <label for="" class="form-label">Email:</label>
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="bi-twitter"></i>
+                    </span>
+                    <input type="email" name="email" class="form-control" disabled placeholder="e.g. johndoe@email.com" value="{{user.email}}"> 
+                </div>
+            </div>
+            <div class="col-md-8 mt-3">
+                <label for="" class="form-label">Twitter username:</label>
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="bi-twitter"></i>
+                    </span>
+                    {% if user_profile.twitter_link == None %}
+                        <input type="text" name="twitter_username" class="form-control" placeholder="Twitter username e.g. @progenx" value="https://twitter.com/{{user_profile.twitter_link}}"> 
+                    {% else %}
+                        <input type="text" name="twitter_username" class="form-control" placeholder="Twitter username e.g. @progenx" value="{{user_profile.twitter_link}}"> 
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-8 mt-3">
+                <label for="" class="form-label">linkedin link:</label>
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="bi-linkedin"></i>
+                    </span>
+                    {% if user_profile.linkedin_link == None %}
+                        <input type="text" name="linkedin" class="form-control" placeholder="linkedin username e.g. progenx" value="https://linkedin.com/{{user_profile.linkedin_link}}"> 
+                    {% else %}
+                        <input type="text" name="linkedin" class="form-control" placeholder="linkedin username e.g. progenx" value="{{user_profile.linkedin_link}}"> 
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-8 mt-3">
+                <label for="" class="form-label">About Me:</label>
+                <textarea name="about_me" class="form-control" id="" cols="30" rows="10" style="resize: none;">{{user_profile.about_me}}</textarea>
+            </div>
+            <div class="col-md-8 mt-3">
+                <button type="submit" class="btn btn-secondary w-100">Update Profile</button>
+            </div>
+        </div>
+    </form>
+{% endblock content %}

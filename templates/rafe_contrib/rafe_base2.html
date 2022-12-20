@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{title}}</title>
+        <link rel="stylesheet" href="{% static 'rafe_contrib/assets/bootstrap-icons/bootstrap-icons.css' %}">
+        <link rel="stylesheet" href="{% static 'rafe_contrib/css/bootstrap.css' %}" />
+        <link rel="stylesheet" href="{% static 'rafe_contrib/css/rafe_style.css' %}" />
+        <script defer src="{% static 'rafe_contrib/js/bootstrap.bundle.min.js' %}"></script>
+        <script defer src="{% static 'rafe_contrib/js/rafe_app.js' %}"></script>
+    </head>
+    <body>
+        <header class="position-fixed top-0 w-100 max-z-index bg-dark text-white">
+            <div class="container-md py-2">
+                <nav class="d-flex justify-content-between">
+                    <a class="navbar-brand" href="{% url 'rafe_contrib-index' %}">
+                        <span class="d-flex" style="font-size: larger;">
+                            <b class="text-warning" style="font-weight: bold;">Pro</b>
+                            <span class="text-light">gen</span>
+                            <span class="text-danger" style="font-weight: bold;">
+                                <b>X</b>
+                            </span>
+                        </span>
+                    </a>
+                    <div class="dropdown open tablet_desktop">
+                        <div role="button" class="d-flex gap-2 p-2 border rounded-pill align-items-center justify-content-center account-setting-container" style="border-color: #6c757d !important;" id="account_settingz" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="bi-gear-fill d-flex" style="font-size: calc(100% + .5rem);"></i>
+                            <span class="account-setting">Account Settings</span>
+                        </div>
+                        <div class="dropdown-menu" aria-labelledby="account_settingz">
+                            <a class="dropdown-item" href="{% url 'rafe_contrib-home' %}">Home</a>
+                            <a class="dropdown-item" href="{% url 'rafe_contrib-personal_contact' %}">Personal & contact info</a>
+                            <a class="dropdown-item" href="{% url 'rafe_contrib-work' %}">Work Experience</a>
+                            <a class="dropdown-item" href="{% url 'rafe_contrib-education' %}">Education</a>
+                            <a class="dropdown-item" href="{% url 'rafe_contrib-skills' %}">Skills</a>
+                            <a class="dropdown-item" href="{% url 'rafe_contrib-achievements' %}">Achievements</a>
+                            <a class="dropdown-item" href="#">Portfolio</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="{% url 'rafe_contrib-logout' %}" class="text-danger underline_none dropdown-item d-flex gap-2 align-items-center">
+                                <i class="bi-box-arrow-left"></i>
+                                <span>
+                                    Logout
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="small_mobile align-items-center justify-content-center">
+                        <i class="bi-gear-fill d-flex" style="font-size: calc(100% + .5rem);" data-bs-toggle="offcanvas" data-bs-target="#acc_settings" aria-controls="acc_settings"></i>
+                    </div>
+                    <div class="offcanvas text-dark offcanvas-start" data-bs-scroll="true" tabindex="-1" id="acc_settings" aria-labelledby="Enable both scrolling & backdrop">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="Enable both scrolling & backdrop">Account Settings</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body d-flex" style="flex-direction: column; row-gap: 1rem;">
+                            <div>
+                                <a href="{% url 'rafe_contrib-home' %}" class="text-dark underline_none lead">
+                                    <i class="bi-person"></i>
+                                    <span class="ms-2">Home</span>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="{% url 'rafe_contrib-personal_contact' %}" class="text-dark underline_none lead">
+                                    <i class="bi-person"></i>
+                                    <span class="ms-2">Personal & contact information</span>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="{% url 'rafe_contrib-work' %}" class="text-dark underline_none lead">
+                                    <i class="bi-briefcase"></i>
+                                    <span class="ms-2">Work Experience</span>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="{% url 'rafe_contrib-education' %}" class="text-dark underline_none lead">
+                                    <i class="bi-book"></i>
+                                    <span class="ms-2">Education</span>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="{% url 'rafe_contrib-skills' %}" class="text-dark underline_none lead">
+                                    <i class="bi-check-all"></i>
+                                    <span class="ms-2">Skills</span>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="{% url 'rafe_contrib-achievements' %}" class="text-dark underline_none lead">
+                                    <i class="bi-award"></i>
+                                    <span class="ms-2">Achievements</span>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="#" class="text-dark underline_none lead">
+                                    <i class="bi-briefcase-fill"></i>
+                                    <span class="ms-2">Portfolio</span>
+                                </a>
+                            </div>
+                        </div>
+                        <a href="{% url 'rafe_contrib-logout' %}" class="offcanvas-footer text-danger p-2 lead underline_none">
+                            <i class="bi-box-arrow-left ms-3"></i>
+                            Logout
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <main class="my-5 p-3">{% block content %}{% endblock content %}</main>
+    </body>
+</html>

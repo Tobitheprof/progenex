@@ -1,0 +1,131 @@
+{% extends 'rafe_contrib/rafe_base2.html' %}
+{% block content %}
+    <section class="container-md mt-3">
+        <div class="text-center border-bottom">
+            <h2 class="fw-bold text-center">Education</h2>
+            <p class="lead">
+                Uploading your education history will do you good. Add some history now and get one step closer to making that awesome portfolio
+            </p>
+        </div>
+    </section>
+    <section class="container-md mt-4 p-3">
+        {% if orgname_error %}
+            <small id="orginazation name" class="fw-bold form-text text-danger">Please fill organization name.</small>
+        {% elif role_error %}
+            <small id="orginazation name" class="fw-bold form-text text-danger">Role Shouldn't be empty.</small>
+        {% elif start_date_err %}
+            <small id="orginazation name" class="fw-bold form-text text-danger">Start year Should't be empty</small>
+        {% elif start_date_not_int_err %}
+            <small id="orginazation name" class="fw-bold form-text text-danger">Start year should be a year. i.e. 2019, 2002 e.t.c.</small>
+        {% elif end_date_not_int_err %}
+            <small id="to" class="form-text fw-bold text-danger">End date should be a year. i.e. 2019, 2002 or left blank for present.</small>
+        {% endif %}
+        {% if success_msg %}
+            <p class="fw-bold text-dark p-3">click <a href="{% url 'rafe_contrib-skills' %}">here</a> {{msg}}</p>
+        {% endif %}
+        <div class="row gy-3">
+            {% for work in works %}
+                <div class="col-md-6">
+                    <div class="card h-100 bg-none">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between px-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span>
+                                        <span class="lead fw-bold">{{work.institution | truncatechars:"10"}}</span>
+                                    </span>
+                                    <span>|</span>
+                                    <span class="lead">{{work.start}} - {{work.stop}}</span>
+                                </div>
+                                <div data-bs-toggle="modal" data-bs-target="#delete">
+                                    <a href="{% url 'rafe_contrib-delete-education' work.id %}">
+                                        <h4 class="bi-trash-fill text-danger"></h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <span>
+                                    <span class="lead fw-bold">{{work.course_of_study | truncatechars:"10"}}</span>
+                                </span>
+                                <span>|</span>
+                                <span class="lead">{{work.degree}}</span>
+                            </div>
+                            <p class="card-text px-3 mt-3">{{work.description | truncatechars:"100"}}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row mt-5 text-center d-flex justify-content-center">
+            <div class="col-md-6">
+                <button class="btn w-100 btn-secondary" data-bs-toggle="modal" data-bs-target="#work_exp">Add Education</button>
+            </div>
+        </div>
+        <!-- Modal Body -->
+        <div class="modal max-z-index fade" id="work_exp" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="workExp_label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+                <form method="post" class="modal-content">
+                    {% csrf_token %}
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="workExp_label">Add an Education</h5> <!--work on typography-->
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="org_name" class="form-label">Degree:</label>
+                            <input value="{{orgname}}" type="text" class="form-control" name="deg" id="org_name" aria-describedby="orginazation name" placeholder="e.g. Bsc">
+                        </div>
+                        <div class="mb-3">
+                            <label for="org_name" class="form-label">institution:</label>
+                            {% if orgname_error %}
+                                <input value="{{orgname}}" type="text" class="form-control" name="org_name" id="org_name" aria-describedby="orginazation name" placeholder="e.g. genxsis" style="border-color: #dc3545 !important; box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;">
+                                <small id="orginazation name" class="form-text text-danger">Please fill institution name.</small>
+                            {% else %}
+                                <input value="{{orgname}}" type="text" class="form-control" name="org_name" id="org_name" aria-describedby="orginazation name" placeholder="e.g. genxsis">
+                            {% endif %}
+                        </div>
+                        <div class="mb-3">
+                            <label for="org_name" class="form-label">course of study:</label>
+                            {% if role_error %}
+                                <input value="{{role}}" type="text" class="form-control" name="role" id="org_name" aria-describedby="orginazation role" placeholder="e.g. software dev" style="border-color: #dc3545 !important; box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;">
+                                <small id="role" class="form-text text-danger">Shouldn't be empty</small>
+                            {% else %}
+                                <input value="{{role}}" type="text" class="form-control" name="role" id="org_name" aria-describedby="orginazation role" placeholder="e.g. software dev">
+                            {% endif %}
+                        </div>
+                        <div class="mb-3">
+                            <label for="org_start_date" class="form-label">From:</label>
+                            {% if start_date_err or start_date_not_int_err %}
+                                <input value="{{startdate}}" type="text" class="form-control" name="org_start_date" id="org_start_date" aria-describedby="from" placeholder="e.g. 2018"  style="border-color: #dc3545 !important; box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;">
+                                {% if start_date_not_int_err %}
+                                    <small id="from" class="form-text text-danger">should be a year. i.e. 2019, 2002 e.t.c</small>
+                                {% else %}
+                                    <small id="from" class="form-text text-danger">Field can't be empty</small>
+                                {% endif %}
+                            {% else %}
+                                <input value="{{startdate}}" type="text" class="form-control" name="org_start_date" id="org_start_date" aria-describedby="from" placeholder="e.g. 2018">
+                                <small id="from" class="form-text text-muted">Peroid or start ddjdjd</small>
+                            {% endif %}
+                        </div>
+                        <div class="mb-3">
+                            <label for="org_end_date" class="form-label">To:</label>
+                            {% if end_date_not_int_err %}
+                                <input value="{{enddate}}" type="text" class="form-control" name="org_end_date" id="org_end_date" aria-describedby="to" placeholder="e.g. 2018 or present"  style="border-color: #dc3545 !important; box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;">
+                                <small id="to" class="form-text text-danger">should be a year. i.e. 2019, 2002 or left blank for present.</small>
+                            {% else %}
+                                <input value="{{enddate}}" type="text" class="form-control" name="org_end_date" id="org_end_date" aria-describedby="to" placeholder="e.g. 2018 or present">
+                                <small id="to" class="form-text text-muted">Peroid or edn loeksksk</small>
+                            {% endif %}
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Description: </label>
+                            <textarea class="form-control" name="role_description" id="" rows="3" style="height: 150px; resize: none;">{{description}}</textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="w-100 btn btn-secondary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

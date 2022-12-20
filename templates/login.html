@@ -1,0 +1,39 @@
+    {% extends 'base2.html' %}
+    {% load static %}
+    {% block content %}    
+    <!--Login-->
+    <section id="login">
+        <div class="justify-content-center">
+            <div class="container-lg border-2">
+                    <div class="text-lg-center text-md-start">
+                        <h4 class="fw-bold">Login</h4>
+                        <p class="lead">Hey there, <span class="fw-bold">Pro</span>genex wasn't the same without you. Login to continue</p>
+                        <p>Don't have an account? Click <a href="{% url 'register' %}">here</a> to register</p>
+                    </div>
+                <div class="row justify-content-center my-3">    
+                    <div class="col-lg-6">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                <input type="text" name="username" id="email" class="form-control" placeholder="Username">
+                                <span class="input-group-text"><i class="bi bi-question-circle"></i></span>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="bi bi-emoji-wink"></i></span>
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                                <span class="input-group-text"><i class="bi bi-question-circle"></i></span>
+                            </div>
+                            <p class="text-muted">Forgot passowrd? Click <a href="{% url 'reset_password' %}">here</a> to reset it.</p>
+                            <div class="text-center mb-4 mt-2">
+                                <button type="submit" class="btn btn-secondary">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--Login end-->
+    </section>
+    {% endblock %}
