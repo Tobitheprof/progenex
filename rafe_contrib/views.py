@@ -11,7 +11,7 @@ from .models import (
 )
 
 """
-time spent debugging: 19hrs
+time spent debugging: 20hrs
 hahaha, i tried my best to make this code extremely optimized and readable
 if any errors are found increment the time spent debugging by the amont you spent on it, and if you do fix the error eventually make it zero
 refer to docs.md for more documentation on code if i do decide to write it...
